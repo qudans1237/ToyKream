@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="UserMapper">
+
+        <resultMap id="userSelectMap" type="user">
+            <result property="userId"          column="USER_ID"      jdbcType="INTEGER"/>
+            <result property="userEmail"       column="USER_EMAIL"   jdbcType="VARCHAR"/>
+            <result property="password"        column="PASSWORD"     jdbcType="VARCHAR"/>
+            <result property="userName"        column="USER_NAME"    jdbcType="VARCHAR"/>
+            <result property="sizeId"          column="SIZE_ID"      jdbcType="INTEGER"/>
+            <result property="phoneNum"        column="PHONE_NUM"    jdbcType="VARCHAR"/>
+            <result property="profileImg"      column="PROFILE_IMG"  jdbcType="VARCHAR"/>
+            <result property="address"         column="ADDRESS"      jdbcType="VARCHAR"/>
+            <result property="point"           column="POINT"        jdbcType="VARCHAR"/>
+            <result property="regDate"         column="REG_DATE"     jdbcType="DATE"/>
+        </resultMap>
+
+
+
+    <insert id="addUser" parameterType="user">
+        INSERT INTO USER
+            (USER_EMAIL, PASSWORD, SIZE_ID, USER_NAME)
+        VALUES
+            (#{userEmail}, #{password}, #{sizeId}, #{userName})
+    </insert>
+    
+</mapper>
